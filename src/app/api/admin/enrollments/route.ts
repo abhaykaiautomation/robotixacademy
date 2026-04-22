@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import { sql, initDb } from "@/lib/db";
+import { getSql, initDb } from "@/lib/db";
 
 export async function GET() {
   try {
     await initDb();
 
-    const rows = await sql`
+    const rows = await getSql()`
       SELECT id, parent_name, child_name, age, email, phone, program, message, created_at
       FROM enrollments
       ORDER BY created_at DESC

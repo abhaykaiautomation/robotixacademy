@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { sql, initDb } from "@/lib/db";
+import { getSql, initDb } from "@/lib/db";
 
 export async function POST(request: Request) {
   try {
@@ -15,7 +15,7 @@ export async function POST(request: Request) {
 
     await initDb();
 
-    const result = await sql`
+    const result = await getSql()`
       INSERT INTO enrollments (parent_name, child_name, age, email, phone, program, message)
       VALUES (${parentName}, ${childName}, ${Number(age)}, ${email}, ${phone}, ${program}, ${message || null})
       RETURNING id, created_at

@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { getAdminAuth } from "@/lib/firebase-admin";
-import { sql, initDb } from "@/lib/db";
+import { getSql, initDb } from "@/lib/db";
 import type { Metadata } from "next";
 import LogoutButton from "./LogoutButton";
 
@@ -40,7 +40,7 @@ async function getAdminUser() {
 
 async function getEnrollments(): Promise<Enrollment[]> {
   await initDb();
-  const rows = await sql`
+  const rows = await getSql()`
     SELECT id, parent_name, child_name, age, email, phone, program, message, created_at
     FROM enrollments
     ORDER BY created_at DESC
