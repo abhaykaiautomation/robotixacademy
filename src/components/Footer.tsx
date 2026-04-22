@@ -61,6 +61,7 @@ export default function Footer() {
                 { label: "Kits & Products", href: "/kits" },
                 { label: "Gallery", href: "/gallery" },
                 { label: "Enroll Now", href: "/contact" },
+                { label: "🔐 Admin", href: "/admin" },
               ].map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} className="hover:text-white transition-colors">
@@ -98,6 +99,12 @@ export default function Footer() {
         <div className="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-500">
           <p>© 2026 RobotixAcademy. All rights reserved.</p>
           <p>Made with ❤️ for the next generation of innovators</p>
+          <Link
+            href="/admin"
+            className="text-white/20 hover:text-white/50 text-xs transition-colors"
+          >
+            Admin
+          </Link>
         </div>
       </div>
     </footer>
