@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand-purple: #6C3CE1;
+  --color-brand-orange: #FF6B35;
+  --color-brand-yellow: #FFD60A;
+  --color-brand-teal: #00C9A7;
+  --color-brand-bg: #F8F7FF;
+  --color-brand-navy: #1A1A2E;
+  --color-brand-purple-light: #EDE8FD;
+
+  --font-sans: var(--font-poppins);
+  --font-heading: var(--font-nunito);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F8F7FF;
+  color: #1A1A2E;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-nunito, 'Nunito', sans-serif);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-delay {
+  animation: float 4s ease-in-out 1s infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.5s ease-out forwards;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #6C3CE1, #FF6B35);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(108, 60, 225, 0.15);
+}
